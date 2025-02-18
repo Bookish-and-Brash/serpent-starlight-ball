@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Serpent & Starlight Ball</title>
+    <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Forum&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #15202d;
+            color: #cfa88f;
+            font-family: 'Forum', serif;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+        .hero {
+            background: url('fantasy-ballroom.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 8px black;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-family: 'Sagite', serif;
+            color: #9e4128;
+            margin-bottom: 10px;
+        }
+        .cta-button {
+            background-color: #9e4128;
+            color: #f5f5f5;
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Eczar', serif;
+        }
+        .content {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .countdown {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>The Serpent & Starlight Ball</h1>
+        <p>Step into a night of magic, mystery, and music.</p>
+        <button class="cta-button">Join the Guest List</button>
+    </div>
+    
+    <div class="content">
+        <h2>A Night of Magic & Wonder</h2>
+        <p>Live musicians, immersive performances, and a fantasy-filled masquerade ball in a historic setting. Will you dare to step inside the story?</p>
+    </div>
+
+    <div class="countdown">
+        <p>Tickets Release In: <span id="countdown-timer">Loading...</span></p>
+    </div>
+
+    <script>
+        function countdown() {
+            const eventDate = new Date('2026-08-15T19:00:00').getTime();
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("countdown-timer").innerHTML = `${days} days, ${hours} hours`;
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown-timer").innerHTML = "Event Started!";
+                }
+            }, 1000);
+        }
+        countdown();
+    </script>
+</body>
+</html>
